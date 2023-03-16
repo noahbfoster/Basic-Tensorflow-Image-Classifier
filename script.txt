@@ -1,0 +1,82 @@
+HTML: 
+    Line 4-6:
+        This code imports the scripts that we
+        need, including the TFJS library,
+        mobilenet model, which we will build
+        on top of, and the knn-classifier algor.,
+        which implements the classification.
+
+    Line 12:
+        We load the index.js script we will
+        finish writing in a moment
+    Line 13-21:
+        This code shows the loaded image on the
+        page, and the code below it is the script that lets
+        you upload images from your own device. 
+
+    Line 22-24:
+        This is where we make the buttons that let us tell
+        the classifier what class the image is that we
+        just uploaded. We can change these labels so that
+        we can keep track of which class is which here.
+            *Change Labels to demo Labels*
+
+JavaScript:
+    Line 3: 
+        Notice we are writing an ascynchronous function,
+        which is important because the classifier returns
+        a promise that we need to await.
+
+    Line 5: 
+        We load our classifier as a knnClassifier. This is
+        a k-nearest-neighbors classifier, which classifies
+        data based on similarity to stored classes.
+
+    Line 8:
+        We load the mobilenet model, awaiting for it. mobilenet
+        is a lightweight type of model that we can use to 
+        process our image data.
+
+    Line 11-17:
+        This code gets the uploaded image from the document
+        and adds it to it's corresponding class when a 
+        class button is pressed.
+        We want to add the example to the classifier using 
+        its classID, which is passed in by the button's event
+        listener.
+
+    Line 19-22:
+        This is where we add the event listeners for the
+        buttons. We just use simple numbers for our class ids as
+        they are passed in.
+    
+    Line 24:
+        This is the start of the loop that actually uses the
+        classifier model to tell  us what the new images
+        we upload are predicted to be.
+
+    Line 27: 
+        We need to get the image from the document once again.
+    
+    Line 29-30:
+        Here is where we want to get the 'activation' from
+        the mobilenet model. This is the data we will use
+        to give to the classifier
+
+    Line 31-32:
+        We then give the data to the classifier, and
+        await its classification verdict. 
+
+    Line 34-38:
+        We use the classification to display a verdict on
+        the page, with a prediction as one of the three 
+        classes, and the classifier's confidence in that
+        prediction.
+
+    General:
+        This model is scalable, in that you could add more
+        classes to differentiate between by copying some
+        of the basic elements of the code, or you could
+        just use two of the classes instead of three.
+    
+    *SHOW DEMO*

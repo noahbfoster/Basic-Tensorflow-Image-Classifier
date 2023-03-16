@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+  </head>
+  <body>
+    <div id="console"></div>
+    
+    <!-- Load index.js after the content of the page -->
+    <script src="index.js"></script>
+    <img id="output" width="200" />	
+    <input type="file"  accept="image/*" onchange="loadFile(event)" name="image" id="file" style="display: none;">
+    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+    <script>
+        var loadFile = function(event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+    <button id="class-a">Add A (Red)</button>
+    <button id="class-b">Add B (Yellow)</button>
+    <button id="class-c">Add C (Green)</button>
+  </body>
+</html>
